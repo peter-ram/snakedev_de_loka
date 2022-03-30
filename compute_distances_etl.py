@@ -6,8 +6,8 @@ from haversine import haversine, Unit
 import sys
 
 # turn into script input
-#month_string = "202202"
-month_string = sys.argv[1]
+month_string = "202112"
+#month_string = sys.argv[1]
 
 print(month_string)
 
@@ -31,6 +31,9 @@ conn = sqlite3.connect(database)
 df = pd.read_sql("SELECT * from bikes WHERE period = {}".format(month_string), con=conn)
 #computing great circle distance
 df['distance'] = distance_calculator(df['start_lat'],df['start_lng'],df['end_lat'],df['end_lng'])
+
+# keeping only two columns - lets keep it clean
+df = df[['ride_id', 'distance']]
 
 df.to_csv("datalake//distances-{}.csv".format(month_string), index = False)
 

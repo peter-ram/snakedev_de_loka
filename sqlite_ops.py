@@ -40,7 +40,7 @@ if operation_type == "raw_loader":
 elif operation_type == "etl_loader":
     
     table_name = "bikes_etl"
-    string = "distances-{}.csv".format(month_string)
+    string = "datalake//distances-{}.csv".format(month_string)
     
     sql_create_table = """CREATE TABLE IF NOT EXISTS {} (
     ride_id TEXT PRIMARY KEY,

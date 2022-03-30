@@ -6,8 +6,7 @@ from haversine import haversine, Unit
 import sys
 
 # turn into script input
-month_string = "202112"
-#month_string = sys.argv[1]
+month_string = sys.argv[1]
 
 print(month_string)
 

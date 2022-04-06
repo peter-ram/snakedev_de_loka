@@ -2,7 +2,7 @@ graph {
 	scraper -- unzipper 
 	unzipper -- sqlite_ops_raw 
 	sqlite_ops_raw -- average_trip_duration 
-	average_trip_duration -- etl_step 
-	etl_step -- sqlite_ops_etl
+	average_trip_duration -- compute_distances_step 
+	compute_distances_step -- sqlite_ops_compute_distances
  
 }

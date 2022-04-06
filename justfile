@@ -1,6 +1,6 @@
 
 month_string := "202202" 
-default: scraper unzipper sqlite_ops_raw average_trip_duration etl_step sqlite_ops_compute_distances
+default: scraper unzipper sqlite_ops_raw average_trip_duration compute_distances_step sqlite_ops_compute_distances
 
 argument_test:
   echo test_arg

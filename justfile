@@ -19,9 +19,11 @@ sqlite_ops_raw:
 # step to create the view and execute query script to get result
 average_trip_duration:
   sqlite3 bikes-warehouse.db -init result.sql 
-#etl step - compute distances
+
+
 compute_distances_step:
   python3 compute_distances.py {{month_string}}
 
+# uploading distances to new table with that specific logic
 sqlite_ops_compute_distances:
   python3 sqlite_compute_distances.py {{month_string}}

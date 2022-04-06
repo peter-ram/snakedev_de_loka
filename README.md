@@ -20,7 +20,7 @@ In the folder you will notice a file called flow.svg. This is a diagram depictin
 - run the parse_just.py - this will generate the DAG file with the logic required to create the visualization. It will be called flow.dot
 - run the command:
 ```bash
- dot flow.dot -Tsvg > flow.svg
+ dot flow.dot -Tpng > flow.png
 ```
 
 This will generate the visualization entitled flow.svg

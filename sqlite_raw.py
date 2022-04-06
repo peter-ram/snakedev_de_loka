@@ -34,12 +34,10 @@ data["period"] = month_string
 
 
 if con is not None:
-        try:
-            c = con.cursor()
-            c.execute(sql_create_table)
-            print("Created the table or checked it exists")
-        except Exception as e:
-            print(e)  
+        c = con.cursor()
+        c.execute(sql_create_table)
+        print("Created the table or checked it exists")
+
    
 
 data.to_sql(name = table_name, con = con, if_exists='append', index = False)

@@ -1,8 +1,8 @@
 
 month_string := "202202" 
-default: scraper unzipper sqlite-ops-raw average-trip-duration etl-step sqlite-ops-etl
+default: scraper unzipper sqlite_ops_raw average_trip_duration etl_step sqlite_ops_compute_distances
 
-argument-test:
+argument_test:
   echo test_arg
 
 scraper:
@@ -13,15 +13,15 @@ unzipper:
   python3 unzipper.py {{month_string}}
 
 #loading raw data to DB step
-sqlite-ops-raw:
+sqlite_ops_raw:
   python3 sqlite_raw.py {{month_string}}
 
 # step to create the view and execute query script to get result
-average-trip-duration:
+average_trip_duration:
   sqlite3 bikes-warehouse.db -init result.sql 
 #etl step - compute distances
-etl-step:
-  python3 compute_distances_etl.py {{month_string}}
+compute_distances_step:
+  python3 compute_distances.py {{month_string}}
 
-sqlite-ops-etl:
-  python3 sqlite_etl.py {{month_string}}
+sqlite_ops_compute_distances:
+  python3 sqlite_compute_distances.py {{month_string}}

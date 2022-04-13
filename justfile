@@ -1,6 +1,6 @@
 
 month_string := "202202" 
-default: scraper unzipper sqlite_ops_raw average_trip_duration compute_distances_step sqlite_ops_compute_distances
+default: scraper unzipper sqlite_ops_raw average_trip_duration compute_distances_step sqlite_ops_compute_distances data_quality
 
 
 scraper:
@@ -26,3 +26,9 @@ compute_distances_step: average_trip_duration
 # uploading distances to new table with that specific logic
 sqlite_ops_compute_distances: compute_distances_step
   python3 sqlite_compute_distances.py {{month_string}}
+  
+
+# data integrity check
+
+data_quality: 
+  python3 data_quality.py {{month_string}}

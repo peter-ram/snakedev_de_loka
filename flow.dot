@@ -1,8 +1,9 @@
-graph { 
-	scraper -- unzipper 
-	unzipper -- sqlite_ops_raw 
-	sqlite_ops_raw -- average_trip_duration 
-	average_trip_duration -- compute_distances_step 
-	compute_distances_step -- sqlite_ops_compute_distances
+digraph { 
+	scraper -> unzipper 
+	unzipper -> sqlite_ops_raw 
+	sqlite_ops_raw -> average_trip_duration 
+	average_trip_duration -> compute_distances_step 
+	compute_distances_step -> sqlite_ops_compute_distances
+	sqlite_ops_compute_distances -> data_quality
  
 }

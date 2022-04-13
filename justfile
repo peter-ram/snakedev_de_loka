@@ -29,6 +29,5 @@ sqlite_ops_compute_distances: compute_distances_step
   
 
 # data integrity check
-
 data_quality: 
   python3 data_quality.py {{month_string}}
